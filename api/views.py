@@ -22,8 +22,10 @@ class DownloadVideoView(APIView):
             file_path = stream.download(output_path=settings.MEDIA_ROOT)
             file_name = os.path.basename(file_path)
             download_url = request.build_absolute_uri(settings.MEDIA_URL + file_name)
+            title = yt.title
+            thumb_video = yt.thumbnail_url
             
-            return JsonResponse({"download_url": download_url}, status=status.HTTP_200_OK)
+            return JsonResponse({"download_url": download_url, "title": title, "thumb_video": thumb_video}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
