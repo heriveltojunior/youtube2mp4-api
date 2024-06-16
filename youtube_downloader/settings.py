@@ -54,9 +54,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # URL do frontend React
-]
+CORS_ALLOWED_ORIGINS = True
 
 ROOT_URLCONF = 'youtube_downloader.urls'
 
