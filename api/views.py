@@ -18,7 +18,7 @@ class DownloadVideoView(APIView):
         
         try:
             yt = YouTube(video_url)
-            stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+            stream = yt.streams.filter(progressive=True, file_extension='mp4',resolution='360p').order_by('resolution').desc().first()
             file_path = stream.download(output_path=settings.MEDIA_ROOT)
             file_name = os.path.basename(file_path)
             download_url = request.build_absolute_uri(settings.MEDIA_URL + file_name)
