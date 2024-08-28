@@ -3,6 +3,7 @@
 from django.conf import settings
 from django.http import JsonResponse
 from rest_framework.views import APIView
+from django.views import View
 from yt_dlp import YoutubeDL
 import ffmpeg
 import os
