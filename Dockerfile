@@ -1,5 +1,9 @@
-FROM python:3.12.4-alpine
-EXPOSE 8000
+FROM ubuntu:22.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt update; apt install -y python3-pip ffmpeg; apt clean
+
 WORKDIR /app
 
 COPY requirements.txt /app
